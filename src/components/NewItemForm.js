@@ -5,7 +5,7 @@ class NewItemForm extends Component {
         return (
             <div className='col-md-12'>
                 <form onSubmit={this.props.handleSubmit}>
-                    <div className="input-group col-md-12">
+                    <div className="col-md-12">
                         <input
                             type="text"
                             className="form-control"
