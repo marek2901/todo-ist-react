@@ -6,16 +6,17 @@ class ItemList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            contents: [],
+            contents: (JSON.parse(localStorage.getItem('contents')) || []),
             value: ''
         };
     }
     handleSubmit(event) {
         event.preventDefault();
-        if (this.state.value && this.state.value.length != 0) {
+        if (this.state.value && this.state.value.length !== 0) {
             var contnts = this.state.contents
             contnts.push(this.state.value)
             this.setState({contents: contnts, value: ''})
+            localStorage.setItem('contents', JSON.stringify(contnts))
         }
     }
     handleChange(event) {
@@ -23,14 +24,14 @@ class ItemList extends Component {
     }
 
     itemDone(index) {
-        this.setState({
-            contents: this
-                .state
-                .contents
-                .filter((e, i) => {
-                    return (i + 1) != index
-                })
-        })
+        var contnts = this
+            .state
+            .contents
+            .filter((e, i) => {
+                return (i + 1) !== index
+            })
+        this.setState({contents: contnts})
+        localStorage.setItem('contents', JSON.stringify(contnts))
     }
 
     render() {

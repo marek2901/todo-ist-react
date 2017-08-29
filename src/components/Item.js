@@ -13,12 +13,11 @@ class Item extends Component {
                             {this.props.content}
                         </div>
                         <div className='col-md-2'>
-                            <a
-                                href='#'
+                            <href
                                 className='btn btn-default'
                                 onClick={this
                                 .done
-                                .bind(this)}>done</a>
+                                .bind(this)}>done</href>
                         </div>
                     </div>
                 </div>
